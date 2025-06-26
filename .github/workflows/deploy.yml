@@ -22,7 +22,11 @@ jobs:
 
       - name: Build Frontend
         run: |
+          echo "Building frontend"
           cd frontend
+          pwd
+          echo "Files in frontend: "
+          ls -al
           npm install
           npm run build
 
