@@ -27,7 +27,7 @@ jobs:
           pwd
           echo "Files in frontend: "
           ls -al
-          npm install
+          npm install --legacy-peer-deps
           npm run build
 
       - name: Rsync files to EC2
