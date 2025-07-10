@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 
 useEffect(() => {
   console.log('Debug 0.0.1');
-}, [])
+}, []);
 
 export default function Home() {
   return (
