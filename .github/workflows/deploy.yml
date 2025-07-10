@@ -77,7 +77,10 @@ jobs:
 
             # Start frontend tmux session
             cd $LIVE_DIR/frontend
-            tmux new-session -d -s frontend 'serve -s build; bash'
+            # TODO swap for prod!!!!!!!
+            # tmux new-session -d -s frontend 'serve -s build; bash'
+            tmux new-session -d -s frontend 'serve -s build -l 0.0.0.0:3001; bash'
+
 
             echo "Deployment complete."
           EOF
