@@ -53,11 +53,6 @@ jobs:
             npm install --legacy-peer-deps
             npm run build
 
-            # Build docs (optional)
-            cd ../api/docs
-            make clean
-            make html
-
             echo "Build succeeded."
 
             # Backup current live directory if it exists
