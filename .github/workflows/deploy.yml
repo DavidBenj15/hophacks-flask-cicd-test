@@ -18,7 +18,17 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+
+          if [ -z "${{ secrets.EC2_HOST }}" ]; then
+            echo "EC2_HOST is not set!"
+            exit 1
+          fi
+
+          echo "Scanning SSH host key for ${{ secrets.EC2_HOST }}..."
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts || {
+            echo "ssh-keyscan failed for ${{ secrets.EC2_HOST }}"
+            exit 1
+          }
 
       - name: Rsync code to EC2 (new folder)
         run: |
