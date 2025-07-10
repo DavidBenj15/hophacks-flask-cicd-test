@@ -8,6 +8,11 @@ import SectionParagraph from './ui/SectionParagraph';
 import { ArrowRightAlt } from '@material-ui/icons';
 // import PrizesSection from './home/Prizes';
 import FaqAccordion from './home/FaqAccordian';
+import { useEffect } from 'react';
+
+useEffect(() => {
+  console.log('Debug 0.0.1');
+}, [])
 
 export default function Home() {
   return (
